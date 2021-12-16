@@ -4,18 +4,19 @@ const newApp = new Vue({
     el: "#root",
     data: 
     {
-        emailList:[1,2,3]
+        emailList:[]
     },
     methods:{
         
     },
     created() {
         
-        axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
-          console.log(this.emailList.push(response.data.response));
-            console.log(this.emailList);
-        })
-
+        for (let index = 0; index < 10; index++) {
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail').then((response) => {
+                console.log(this.emailList.push(response.data.response));
+                  console.log(this.emailList);
+            })            
+        }
     }
 });
 
